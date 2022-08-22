@@ -3,8 +3,15 @@ package com.example.calculatorappnew;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    private Double inputOne;
+    private Double inputTwo;
+    private String execute;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -12,5 +19,75 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public
+    public void zero(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        num.setText(num.getText() + "0");
+    }
+    public void one(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        num.setText(num.getText() + "1");
+    }
+    public void two(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        num.setText(num.getText() + "2");
+    }
+    public void three(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        num.setText(num.getText() + "3");
+    }
+    public void four(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        num.setText(num.getText() + "4");
+    }
+    public void five(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        num.setText(num.getText() + "5");
+    }
+    public void six(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        num.setText(num.getText() + "6");
+    }
+    public void seven(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        num.setText(num.getText() + "7");
+    }
+    public void eight(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        num.setText(num.getText() + "8");
+    }
+    public void nine(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        num.setText(num.getText() + "9");
+    }
+    public void dot(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        num.setText(num.getText() + ".");
+    }
+
+
+
+    public void clear(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        num.setText("");
+    }
+
+    public void add(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        inputOne = Double.parseDouble(String.valueOf(num.getText()));
+        num.setText("");
+        execute = "+";
+    }
+    public void calculate(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        inputTwo = Double.parseDouble(String.valueOf(num.getText()));
+
+        if(execute.equals("+")){
+            num.setText("" + (inputOne + inputTwo));
+            execute = "";
+        } else {
+            num.setText("" + inputOne);
+        }
+
+    }
+
 }
