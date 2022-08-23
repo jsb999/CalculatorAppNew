@@ -10,6 +10,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     private Double inputOne;
     private Double inputTwo;
+    private Double output;
     private String execute;
 
 
@@ -73,21 +74,30 @@ public class MainActivity extends AppCompatActivity {
 
     public void add(View view){
         EditText num = (EditText) findViewById(R.id.input);
-        inputOne = Double.parseDouble(String.valueOf(num.getText()));
+        if(!num.getText().toString().equals("")) {
+            inputOne = Double.parseDouble(String.valueOf(num.getText()));
+        } else {
+            inputOne = 0.0;
+        }
         num.setText("");
         execute = "+";
+        System.out.println("Num 1: " + inputOne);
+        System.out.println("Num 2: " + inputTwo);
     }
     public void calculate(View view){
         EditText num = (EditText) findViewById(R.id.input);
-        inputTwo = Double.parseDouble(String.valueOf(num.getText()));
-
-        if(execute.equals("+")){
-            num.setText("" + (inputOne + inputTwo));
-            execute = "";
-        } else {
-            num.setText("" + inputOne);
+        if(!num.getText().toString().equals("")){
+            inputTwo = Double.parseDouble(String.valueOf(num.getText()));
+            if(execute.equals("+")){
+                output = inputOne+inputTwo;
+                execute = "";
+            }
+        } else{
+            output = 0.0;
         }
-
+        num.setText("" + output);
+        System.out.println("Num 1: " + inputOne);
+        System.out.println("Num 2: " + inputTwo);
     }
 
 }
