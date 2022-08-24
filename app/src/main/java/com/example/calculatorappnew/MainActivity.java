@@ -64,6 +64,18 @@ public class MainActivity extends AppCompatActivity {
         EditText num = (EditText) findViewById(R.id.input);
         num.setText(num.getText() + ".");
     }
+    public void pos_neg(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        if(num.getText().toString().equals("")) {
+            num.setText("0.0");
+        }else {
+            if (Double.parseDouble(String.valueOf(num.getText())) > 0) {
+                num.setText("-" + num.getText());
+            } else {
+                num.setText(num.getText().toString().substring(1));
+            }
+        }
+    }
 
 
 
@@ -84,12 +96,109 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("Num 1: " + inputOne);
         System.out.println("Num 2: " + inputTwo);
     }
+
+    public void subtract(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        if(!num.getText().toString().equals("")) {
+            inputOne = Double.parseDouble(String.valueOf(num.getText()));
+        } else {
+            inputOne = 0.0;
+        }
+        num.setText("");
+        execute = "-";
+        System.out.println("Num 1: " + inputOne);
+        System.out.println("Num 2: " + inputTwo);
+    }
+
+    public void multiply(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        if(!num.getText().toString().equals("")) {
+            inputOne = Double.parseDouble(String.valueOf(num.getText()));
+        } else {
+            inputOne = 0.0;
+        }
+        num.setText("");
+        execute = "*";
+        System.out.println("Num 1: " + inputOne);
+        System.out.println("Num 2: " + inputTwo);
+    }
+
+    public void divide(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        if(!num.getText().toString().equals("")) {
+            inputOne = Double.parseDouble(String.valueOf(num.getText()));
+        } else {
+            inputOne = 0.0;
+        }
+        num.setText("");
+        execute = "/";
+        System.out.println("Num 1: " + inputOne);
+        System.out.println("Num 2: " + inputTwo);
+    }
+
+    public void square(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        if(!num.getText().toString().equals("")) {
+            inputOne = Double.parseDouble(String.valueOf(num.getText()));
+        } else {
+            inputOne = 0.0;
+        }
+        num.setText("");
+        execute = "^";
+        System.out.println("Num 1: " + inputOne);
+        System.out.println("Num 2: " + inputTwo);
+    }
+
+    public void squareRoot(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        if(!num.getText().toString().equals("")) {
+            inputOne = Double.parseDouble(String.valueOf(num.getText()));
+        } else {
+            inputOne = 0.0;
+        }
+        num.setText("√" + inputOne);
+        execute = "sqrt";
+        System.out.println("Num 1: " + inputOne);
+        System.out.println("Num 2: " + inputTwo);
+    }
+
+    public void factorial(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        if(!num.getText().toString().equals("")) {
+            inputOne = Double.parseDouble(String.valueOf(num.getText()));
+        } else {
+            inputOne = 0.0;
+        }
+        num.setText("√" + inputOne);
+        execute = "fac";
+        System.out.println("Num 1: " + inputOne);
+        System.out.println("Num 2: " + inputTwo);
+    }
+
     public void calculate(View view){
         EditText num = (EditText) findViewById(R.id.input);
         if(!num.getText().toString().equals("")){
-            inputTwo = Double.parseDouble(String.valueOf(num.getText()));
+            if(!execute.equals("sqrt") && !execute.equals("fac")){
+                inputTwo = Double.parseDouble(String.valueOf(num.getText()));
+            }
+
             if(execute.equals("+")){
                 output = inputOne+inputTwo;
+                execute = "";
+            } else if(execute.equals("-")){
+                output = inputOne-inputTwo;
+                execute = "";
+            } else if(execute.equals("*")){
+                output = inputOne*inputTwo;
+                execute = "";
+            } else if(execute.equals("/")){
+                output = inputOne/inputTwo;
+                execute = "";
+            } else if(execute.equals("^")){
+                output = Math.pow(inputOne,inputTwo);
+                execute = "";
+            } else if(execute.equals("sqrt")){
+                output = Math.sqrt(inputOne);
                 execute = "";
             }
         } else{

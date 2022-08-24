@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_pink"
     tools:context=".MainActivity">
 
     <Button
@@ -68,6 +69,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="312dp"
         android:text="+/-"
+        android:onClick="pos_neg"
         app:layout_constraintStart_toEndOf="@+id/zero"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -167,21 +169,65 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="4dp"
         android:onClick="add"
         android:text="+"
         app:layout_constraintEnd_toStartOf="@+id/subtract"
         app:layout_constraintTop_toBottomOf="@+id/clear" />
 
     <Button
+        android:id="@+id/multiply"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="4dp"
+        android:onClick="multiply"
+        android:text="x"
+        app:layout_constraintEnd_toStartOf="@+id/divide"
+        app:layout_constraintTop_toBottomOf="@+id/clear" />
+
+    <Button
         android:id="@+id/divide"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="12dp"
         android:onClick="divide"
         android:text="/"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clear" />
+
+    <Button
+        android:id="@+id/divide2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="12dp"
+        android:onClick="square"
+        android:text="^"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clear" />
+
+    <Button
+        android:id="@+id/divide3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="156dp"
+        android:layout_marginEnd="4dp"
+        android:onClick="factorial"
+        android:text="x!"
+        app:layout_constraintEnd_toStartOf="@+id/divide2"
+        app:layout_constraintTop_toBottomOf="@+id/clear" />
+
+    <Button
+        android:id="@+id/divide4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="4dp"
+        android:onClick="squareRoot"
+        android:text="√"
+        app:layout_constraintEnd_toStartOf="@+id/divide2"
         app:layout_constraintTop_toBottomOf="@+id/clear" />
 
     <Button
@@ -189,21 +235,10 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="12dp"
         android:onClick="subtract"
         android:text="-"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clear" />
-
-    <Button
-        android:id="@+id/multiply"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="12dp"
-        android:onClick="multiply"
-        android:text="x"
-        app:layout_constraintEnd_toStartOf="@+id/divide"
         app:layout_constraintTop_toBottomOf="@+id/clear" />
 
     <Button
