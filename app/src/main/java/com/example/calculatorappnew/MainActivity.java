@@ -169,8 +169,26 @@ public class MainActivity extends AppCompatActivity {
         } else {
             inputOne = 0.0;
         }
-        num.setText("√" + inputOne);
+        num.setText(inputOne + "!");
         execute = "fac";
+        System.out.println("Num 1: " + inputOne);
+        System.out.println("Num 2: " + inputTwo);
+    }
+
+    public void percent(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        if(!num.getText().toString().equals("")) {
+            num.setText(""+Double.parseDouble(String.valueOf(num.getText()))/100);
+        } else {
+            inputOne = 0.0;
+        }
+        System.out.println("Num 1: " + inputOne);
+        System.out.println("Num 2: " + inputTwo);
+    }
+
+    public void pi(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        num.setText("" + Math.PI);
         System.out.println("Num 1: " + inputOne);
         System.out.println("Num 2: " + inputTwo);
     }
@@ -199,6 +217,13 @@ public class MainActivity extends AppCompatActivity {
                 execute = "";
             } else if(execute.equals("sqrt")){
                 output = Math.sqrt(inputOne);
+                execute = "";
+            } else if(execute.equals("fac")){
+                output = 1.0;
+                while (inputOne > 0){
+                    output *= inputOne;
+                    inputOne--;
+                }
                 execute = "";
             }
         } else{
