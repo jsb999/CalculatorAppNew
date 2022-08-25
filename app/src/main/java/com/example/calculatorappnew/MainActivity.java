@@ -193,10 +193,49 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("Num 2: " + inputTwo);
     }
 
+    public void cos(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        if(!num.getText().toString().equals("")) {
+            inputOne = Double.parseDouble(String.valueOf(num.getText()));
+        } else {
+            inputOne = 0.0;
+        }
+        num.setText(""+inputOne);
+        execute = "cos";
+        System.out.println("Num 1: " + inputOne);
+        System.out.println("Num 2: " + inputTwo);
+    }
+
+    public void sin(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        if(!num.getText().toString().equals("")) {
+            inputOne = Double.parseDouble(String.valueOf(num.getText()));
+        } else {
+            inputOne = 0.0;
+        }
+        num.setText(""+inputOne);
+        execute = "sin";
+        System.out.println("Num 1: " + inputOne);
+        System.out.println("Num 2: " + inputTwo);
+    }
+
+    public void tan(View view){
+        EditText num = (EditText) findViewById(R.id.input);
+        if(!num.getText().toString().equals("")) {
+            inputOne = Double.parseDouble(String.valueOf(num.getText()));
+        } else {
+            inputOne = 0.0;
+        }
+        num.setText(""+inputOne);
+        execute = "tan";
+        System.out.println("Num 1: " + inputOne);
+        System.out.println("Num 2: " + inputTwo);
+    }
+
     public void calculate(View view){
         EditText num = (EditText) findViewById(R.id.input);
         if(!num.getText().toString().equals("")){
-            if(!execute.equals("sqrt") && !execute.equals("fac")){
+            if(!execute.equals("sqrt") && !execute.equals("fac") && !execute.equals("cos") && !execute.equals("tan") && !execute.equals("sin")){
                 inputTwo = Double.parseDouble(String.valueOf(num.getText()));
             }
 
@@ -224,6 +263,15 @@ public class MainActivity extends AppCompatActivity {
                     output *= inputOne;
                     inputOne--;
                 }
+                execute = "";
+            } else if(execute.equals("cos")){
+                output = Math.cos(inputOne);
+                execute = "";
+            } else if(execute.equals("sin")){
+                output = Math.sin(inputOne);
+                execute = "";
+            } else if(execute.equals("tan")){
+                output = Math.tan(inputOne);
                 execute = "";
             }
         } else{
