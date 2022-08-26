@@ -232,54 +232,76 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("Num 2: " + inputTwo);
     }
 
-    public void calculate(View view){
+    public void log(View view){
         EditText num = (EditText) findViewById(R.id.input);
-        if(!num.getText().toString().equals("")){
-            if(!execute.equals("sqrt") && !execute.equals("fac") && !execute.equals("cos") && !execute.equals("tan") && !execute.equals("sin")){
-                inputTwo = Double.parseDouble(String.valueOf(num.getText()));
-            }
-
-            if(execute.equals("+")){
-                output = inputOne+inputTwo;
-                execute = "";
-            } else if(execute.equals("-")){
-                output = inputOne-inputTwo;
-                execute = "";
-            } else if(execute.equals("*")){
-                output = inputOne*inputTwo;
-                execute = "";
-            } else if(execute.equals("/")){
-                output = inputOne/inputTwo;
-                execute = "";
-            } else if(execute.equals("^")){
-                output = Math.pow(inputOne,inputTwo);
-                execute = "";
-            } else if(execute.equals("sqrt")){
-                output = Math.sqrt(inputOne);
-                execute = "";
-            } else if(execute.equals("fac")){
-                output = 1.0;
-                while (inputOne > 0){
-                    output *= inputOne;
-                    inputOne--;
-                }
-                execute = "";
-            } else if(execute.equals("cos")){
-                output = Math.cos(inputOne);
-                execute = "";
-            } else if(execute.equals("sin")){
-                output = Math.sin(inputOne);
-                execute = "";
-            } else if(execute.equals("tan")){
-                output = Math.tan(inputOne);
-                execute = "";
-            }
-        } else{
-            output = 0.0;
+        if(!num.getText().toString().equals("")) {
+            inputOne = Double.parseDouble(String.valueOf(num.getText()));
+        } else {
+            inputOne = 0.0;
         }
-        num.setText("" + output);
+        num.setText(""+inputOne);
+        execute = "log";
         System.out.println("Num 1: " + inputOne);
         System.out.println("Num 2: " + inputTwo);
     }
 
+    public void calculate(View view) {
+        EditText num = (EditText) findViewById(R.id.input);
+        try {
+            if (!num.getText().toString().equals("")) {
+                if (!execute.equals("sqrt") && !execute.equals("fac") && !execute.equals("cos") && !execute.equals("tan") && !execute.equals("sin") && !execute.equals("log")) {
+                    inputTwo = Double.parseDouble(String.valueOf(num.getText()));
+                }
+
+
+                if (execute.equals("+")) {
+                    output = inputOne + inputTwo;
+                    execute = "";
+                } else if (execute.equals("-")) {
+                    output = inputOne - inputTwo;
+                    execute = "";
+                } else if (execute.equals("*")) {
+                    output = inputOne * inputTwo;
+                    execute = "";
+                } else if (execute.equals("/")) {
+                    output = inputOne / inputTwo;
+                    execute = "";
+                } else if (execute.equals("^")) {
+                    output = Math.pow(inputOne, inputTwo);
+                    execute = "";
+                } else if (execute.equals("sqrt")) {
+                    output = Math.sqrt(inputOne);
+                    execute = "";
+                } else if (execute.equals("fac")) {
+                    output = 1.0;
+                    while (inputOne > 0) {
+                        output *= inputOne;
+                        inputOne--;
+                    }
+                    execute = "";
+                } else if (execute.equals("cos")) {
+                    output = Math.cos(inputOne);
+                    execute = "";
+                } else if (execute.equals("sin")) {
+                    output = Math.sin(inputOne);
+                    execute = "";
+                } else if (execute.equals("tan")) {
+                    output = Math.tan(inputOne);
+                    execute = "";
+                } else if (execute.equals("log")) {
+                    output = Math.log10(inputOne);
+                    execute = "";
+                }
+            } else {
+                output = 0.0;
+            }
+            num.setText("" + output);
+            System.out.println("Num 1: " + inputOne);
+            System.out.println("Num 2: " + inputTwo);
+
+        } catch (Exception e) {
+            output = 0.0;
+            num.setText("" + output);
+        }
+    }
 }

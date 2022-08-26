@@ -242,6 +242,16 @@
         app:layout_constraintTop_toBottomOf="@+id/divide5" />
 
     <Button
+        android:id="@+id/divide8"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="4dp"
+        android:onClick="log"
+        android:text="log"
+        app:layout_constraintEnd_toStartOf="@+id/divide3"
+        app:layout_constraintTop_toBottomOf="@+id/divide5" />
+
+    <Button
         android:id="@+id/divide7"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -249,7 +259,6 @@
         android:layout_marginTop="148dp"
         android:onClick="sin"
         android:text="sin"
-        android:textSize="22px"
         app:layout_constraintStart_toEndOf="@+id/divide4"
         app:layout_constraintTop_toBottomOf="@+id/clear" />
 
@@ -261,7 +270,6 @@
         android:layout_marginTop="216dp"
         android:onClick="tan"
         android:text="tan"
-        android:textSize="22px"
         app:layout_constraintStart_toEndOf="@+id/divide2"
         app:layout_constraintTop_toBottomOf="@+id/clear" />
 
@@ -284,7 +292,6 @@
         android:layout_marginTop="284dp"
         android:onClick="cos"
         android:text="cos"
-        android:textSize="22px"
         app:layout_constraintStart_toEndOf="@+id/calculate"
         app:layout_constraintTop_toBottomOf="@+id/clear" />
 
